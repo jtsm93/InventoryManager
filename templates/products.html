@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/inventorymanager.css') }}">
+
+<html lang="eng">
+	<head>
+        <meta charset="UTF-8">
+        <title>Inventory Manager</title>
+        <link rel="stylesheet" href="inventorymanager.css" type="text/css" />
+    </head>
+	<body>
+		<div id="page">
+			<div id="header">
+                <h1>Inventory Manager</h1>
+            </div>
+			<div id="menu">
+                <ul>
+					<form method="POST" action="/products/menu">
+						<li><input type="submit" name="submit_button" value="Home"></li>
+						<li><input type="submit" name="submit_button" value="Inventory"></li>
+						<li><input type="submit" name="submit_button" value="Products"></li>
+					</form>
+                </ul>
+            </div>				
+			<div id="info">
+				<div id="infocontent">
+					<form method="POST" action="/products/choosecategory">
+						<h3>Products</h3>
+						<p> View the available products that can be added to the inventory <br>
+						by choosing a category. The products from the chosen category will <br>
+						then be displayed in the column to the right.</p>
+						
+						<label for="category">Choose category:</label>
+						<select name="category" id="category">
+							<option value="All">All</option>
+							<option value="Condiments">Condiments</option>
+							<option value="Beverages">Beverages</option>
+							<option value="Baked Goods">Baked Goods</option>
+						</select>
+						
+						<input type="submit" name="submit_button" value="Submit">
+					</form>
+					<form method="POST" action="/products/add">
+						<h3>Add product to inventory</h3>
+						<p>Choose from the available products in the displayed column <br>
+						and enter the name of the product you want to add to your inventory.</p>
+						
+						<label>Product name:</label>
+						<input type="text" name="product_name">
+						<p class="error">{{error_addproduct}}</p>
+								
+						<p>Enter how many items of the product you want to add.</p>
+						<label>Quantity:</label>
+						<input type="number" name="quantity" min="1">
+						<p class="error">{{error_addquantity}}</p>
+						<p class="success">{{success_addproduct}}</p>
+						
+						<input type="submit" name="submit_button" value="Add">
+					</form>
+				</div>
+			</div> 
+			<div id="results">
+				<div id="resultscontent">	
+					<h3>Category: {{categoryoption}}</h3>
+					<ul>
+						{% for row in rows %}
+							<li>{{ row }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+

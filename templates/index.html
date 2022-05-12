@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/inventorymanager.css') }}">
+
+<html lang="eng">
+	<head>
+        <meta charset="UTF-8">
+        <title>Inventory Manager</title>
+        <link rel="stylesheet" href="inventorymanager.css" type="text/css" />
+    </head>
+	<body>
+		<div id="page">
+			<div id="header">
+                <h1>Inventory Manager</h1>
+            </div>
+			<div id="menu">
+                <ul>
+					<form method="POST" action="/index/menu">
+						<li><input type="submit" name="submit_button" value="Home"></li>
+						<li><input type="submit" name="submit_button" value="Inventory"></li>
+						<li><input type="submit" name="submit_button" value="Products"></li>
+					</form>
+                </ul>
+            </div>
+			<div id="info">
+				<div id="infocontent">
+					<h3>About</h3>
+					<p> This is an inventory manager that allows the user to add products,<br>
+					from a predefined list of products to an inventory. The user can also,<br>
+					remove products from the inventory or check which products are currently,<br>
+					in the inventory.</p>
+					
+					<h3>Usage</h3>
+					<p>To add a product to the inventory go to the products page and,<br>
+					under "Add product to inventory" type in the name of the product,<br>
+					you want to add, then enter the quantity and click the "Add" button.</p>
+					<p>To remove a product from the inventory go the inventory page and,<br>
+					under "Remove a product from the inventory" type in the name of the,<br>
+					product you want to remove, then enter the quantity and click the,<br>
+					"Remove" button. If you want to remove all products from the inventory,<br>
+					use the "Clear" button.</p>
+				</div>
+			</div>
+			<div id="results">
+			</div>
+		</div>
+	</body>
+</html>
+
+
+
