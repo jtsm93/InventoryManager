@@ -1,9 +1,12 @@
-from flask import Flask, render_template, request, redirect
+#
+# Author: Jakob Mukka
+# Date: 2022-05-12
+#
 
+from flask import Flask, render_template, request, redirect
 from mysql.connector import (connection)
 
 app = Flask(__name__)
-
 app.static_folder = 'static'
 
 # This function is used to connect to the productinventory database
